@@ -1,14 +1,14 @@
-var AppDispatcher = require("../dispatcher/Dispatcher");
+var AppDispatcher = require("../dispatcher/dispatcher");
 
 var TrackActions = {
-  addTrack: function(track) {
+  addTrack: function (track) {
     AppDispatcher.dispatch({
       actionType: "ADD_TRACK",
       track: track
     });
   },
 
-  deleteTrack: function(track) {
+  deleteTrack: function (track) {
     AppDispatcher.dispatch({
       actionType: "DELETE_TRACK",
       track: track

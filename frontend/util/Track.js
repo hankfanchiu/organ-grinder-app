@@ -1,4 +1,4 @@
-var KeyActions = require("../actions/KeyActions");
+var KeyActions = require("../actions/key_actions");
 
 var Track = function (attributes) {
   this.attributes = attributes;
@@ -27,10 +27,10 @@ Track.prototype.play = function () {
 
   this.interval = setInterval(function() {
     if (currentNote < this.roll.length) {
-      var currentTimeSlice = Date.now() - playBackStartTime;
+      var timeLapsed = Date.now() - playBackStartTime;
       var currentRoll = this.roll[currentNote];
 
-      if (currentTimeSlice > currentRoll.timeSlice) {
+      if (timeLapsed > currentRoll.timeSlice) {
         KeyActions.playback(currentRoll.notes);
         currentNote += 1;
       }

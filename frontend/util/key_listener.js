@@ -1,6 +1,6 @@
-var KeyActions = require("../actions/KeyActions");
+var KeyActions = require("../actions/key_actions");
 
-var Mapping = {
+var MAPPING = {
   49: "C",
   50: "D",
   51: "E",
@@ -13,12 +13,12 @@ var Mapping = {
 
 var KeyListener = {
   keyup: function (e) {
-    var key = Mapping[e.keyCode];
+    var key = MAPPING[e.keyCode];
     KeyActions.keyReleased(key);
   },
 
   keydown: function (e) {
-    var key = Mapping[e.keyCode];
+    var key = MAPPING[e.keyCode];
     KeyActions.keyPressed(key);
   }
 };

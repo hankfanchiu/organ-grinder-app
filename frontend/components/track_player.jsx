@@ -1,25 +1,25 @@
 var React = require('react');
-var TrackActions = require('../actions/TrackActions');
+var TrackActions = require('../actions/track_actions');
 
 var TrackPlayer = React.createClass({
-  handlePlay: function() {
+  handlePlay: function () {
     this.props.track.play();
   },
 
-  handleDelete: function() {
+  handleDelete: function () {
     TrackActions.deleteTrack(this.props.track);
   },
 
-  render: function(){
+  render: function (){
     return (
       <li className="track">
-        {this.props.track.name}
+        { this.props.track.name }
 
         <button className="play-track"
-          onClick={this.handlePlay}>Play</button>
+          onClick={ this.handlePlay }>Play</button>
 
         <button className="delete"
-          onClick={this.handleDelete}>Delete</button>
+          onClick={ this.handleDelete }>Delete</button>
       </li>
     );
   }

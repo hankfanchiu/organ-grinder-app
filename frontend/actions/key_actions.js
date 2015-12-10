@@ -1,4 +1,4 @@
-var AppDispatcher = require("../dispatcher/Dispatcher");
+var AppDispatcher = require("../dispatcher/dispatcher");
 
 var KeyActions = {
   keyReleased: function (key) {

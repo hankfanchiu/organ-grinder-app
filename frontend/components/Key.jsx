@@ -1,14 +1,14 @@
-var KeyStore = require('../stores/KeyStore');
+var KeyStore = require('../stores/key_store');
 var React = require('react');
-var Note = require('../util/Note');
-var TONES = require('../constants/Tones');
+var Note = require('../util/note');
+var TONES = require('../constants/tones');
 
 var Key = React.createClass({
   getInitialState: function () {
     return { pressed: false };
   },
 
-  componentDidMount: function() {
+  componentDidMount: function () {
     this.note = new Note(TONES[this.props.noteName]);
     this.listenerToken = KeyStore.addListener(this.play);
   },
@@ -17,7 +17,7 @@ var Key = React.createClass({
     this.listenerToken.remove();
   },
 
-  play: function() {
+  play: function () {
     if (KeyStore.includes(this.props.noteName)) {
       this.note.start();
       this.setState({ pressed: true });
@@ -27,12 +27,10 @@ var Key = React.createClass({
     }
   },
 
-  render: function() {
+  render: function () {
     var cls = (this.state.pressed ? " pressed" : "");
 
-    return (
-      <li className={"key" + cls}>{this.props.noteName}</li>
-    );
+    return <li className={ "key" + cls }>{ this.props.noteName }</li>;
   }
 });
 

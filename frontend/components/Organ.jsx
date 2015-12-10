@@ -1,20 +1,28 @@
 var React = require('react');
-var Key = require('./Key');
-var Recorder = require("./Recorder");
-var TONES = require('../constants/Tones');
-var Jukebox = require("./Jukebox");
+var Key = require('./key');
+var Recorder = require("./recorder");
+var TONES = require('../constants/tones');
+var Jukebox = require("./jukebox");
 
 var Organ = React.createClass({
-  render: function() {
-    var keys = Object.keys(TONES).map(function(key, idx){
-      return <Key noteName={key} key={idx} />
+  keys: function () {
+    return Object.keys(TONES).map(function(key, idx){
+      return <Key noteName={ key } key={ idx } />;
     });
+  },
 
+  render: function () {
     return (
       <div className="organ">
-        <ul className="keys">{keys}</ul>
+
+        <ul className="keys">
+          { keys }
+        </ul>
+
         <Recorder />
+
         <Jukebox />
+
       </div>
     );
   }

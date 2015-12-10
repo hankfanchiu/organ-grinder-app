@@ -1,5 +1,5 @@
 var Store = require('flux/utils').Store;
-var AppDispatcher = require("../dispatcher/Dispatcher");
+var AppDispatcher = require("../dispatcher/dispatcher");
 
 var _tracks = [];
 var TrackStore = new Store(AppDispatcher);
@@ -15,18 +15,18 @@ TrackStore.__onDispatch = function (payload) {
   };
 };
 
-TrackStore.all = function() {
+TrackStore.all = function () {
   return _tracks.slice();
 };
 
-var addTrack = function(track) {
+var addTrack = function (track) {
   if (_tracks.indexOf(track) === -1) {
     _tracks.push(track);
     TrackStore.__emitChange();
   }
 };
 
-var deleteTrack = function(track) {
+var deleteTrack = function (track) {
   var idx = _tracks.indexOf(track);
   if (idx !== -1) {
     _tracks.splice(idx, 1);
