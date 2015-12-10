@@ -1,5 +1,6 @@
 var React = require('react');
 var Key = require('./Key');
+var Recorder = require("./Recorder");
 var TONES = require('../constants/Tones');
 
 var Organ = React.createClass({
@@ -9,7 +10,10 @@ var Organ = React.createClass({
     });
 
     return (
-      <ul className="organ">{keys}</ul>
+      <div className="organ">
+        <ul className="keys">{keys}</ul>
+        <Recorder />
+      </div>
     );
   }
 });

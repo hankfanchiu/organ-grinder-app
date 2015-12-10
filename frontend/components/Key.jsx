@@ -5,16 +5,16 @@ var TONES = require('../constants/Tones');
 
 var Key = React.createClass({
   getInitialState: function () {
-      return { pressed: false };
+    return { pressed: false };
   },
 
   componentDidMount: function() {
     this.note = new Note(TONES[this.props.noteName]);
-    KeyStore.addListener(this.play);
+    this.listenerToken = KeyStore.addListener(this.play);
   },
 
   componentWillUnmount: function () {
-    KeyStore.removeListener(this.play);
+    this.listenerToken.remove();
   },
 
   play: function() {
